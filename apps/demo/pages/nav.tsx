@@ -1,12 +1,10 @@
 import { type NextPageWithLayout } from "./_app";
-import { DefaultLayout } from "../components/layout/default-layout";
 import { Card, Image, Text, Badge, Button, Group } from "@mantine/core";
-import Link from "next/link";
+import { NavLayout } from "../components/layout/nav-layout";
 
-const Home: NextPageWithLayout = () => {
+const Nav: NextPageWithLayout = () => {
   return (
     <main>
-      <Link href="/nav">navページ</Link>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
         <Card.Section>
           <Image
@@ -34,8 +32,8 @@ const Home: NextPageWithLayout = () => {
   );
 };
 
-Home.getLayout = (page) => {
-  return <DefaultLayout>{page}</DefaultLayout>;
+Nav.getLayout = (page) => {
+  return <NavLayout>{page}</NavLayout>;
 };
 
-export default Home;
+export default Nav;
