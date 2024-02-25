@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mantine/code-highlight": "^7.5.3",
     "@mantine/core": "^7.5.3",
     "@mantine/hooks": "^7.5.3",
     "@repo/ui": "workspace:*",
