@@ -4,6 +4,7 @@ import { NumberInput, Stack, Text, Title } from "@mantine/core";
 import { CodeHighlight } from "@mantine/code-highlight";
 import { useEffect, useState } from "react";
 import { User } from "../../types";
+import { UserCard } from "../../components/user-card";
 
 const exampleCode = `
 useEffect(() => {
@@ -62,12 +63,12 @@ const UseEffectPage: NextPageWithLayout = () => {
           onChange={(value) => setUserId(Number(value))}
         />
         {user && (
-          <Stack>
-            <Text>{`id: ${user.id}`}</Text>
-            <Text>{`name: ${user.name}`}</Text>
-            <Text>{`username: ${user.username}`}</Text>
-            <Text>{`email: ${user.email}`}</Text>
-          </Stack>
+          <UserCard
+            name={user.name}
+            username={user.username}
+            id={user.id}
+            company={user.company}
+          />
         )}
       </Stack>
     </main>

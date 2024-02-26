@@ -13,5 +13,5 @@
   "tailwindCSS.experimental.classRegex": [
     ["tv\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ],
-  "cSpell.words": ["mantine", "tailwindcss", "zustand"]
+  "cSpell.words": ["mantine", "tailwindcss", "tanstack", "zustand"]
 }
