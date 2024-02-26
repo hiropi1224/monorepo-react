@@ -9,7 +9,7 @@ export type User = {
   company: Company;
 };
 
-type Company = {
+export type Company = {
   name: string;
   catchPhrase: string;
   bs: string;
