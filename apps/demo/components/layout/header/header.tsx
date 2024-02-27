@@ -1,4 +1,4 @@
-import { Flex, Text } from "@mantine/core";
+import { Flex } from "@mantine/core";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
