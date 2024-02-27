@@ -1,9 +1,9 @@
-import { AppShell, Flex } from "@mantine/core";
+import { AppShell } from "@mantine/core";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-import Link from "next/link";
 import { ReactNode } from "react";
+import { Header } from "../header";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -19,10 +19,7 @@ export function FetchLayout({ children }: { children: ReactNode }) {
     <QueryClientProvider client={queryClient}>
       <AppShell header={{ height: 60 }} padding="md">
         <AppShell.Header bg="grape.1">
-          <Flex justify="center" align="center" gap="md">
-            <Link href="/fetch/useeffect">useEffect</Link>
-            <Link href="/fetch/reactquery">ReactQuery</Link>
-          </Flex>
+          <Header />
         </AppShell.Header>
 
         <AppShell.Main>{children}</AppShell.Main>

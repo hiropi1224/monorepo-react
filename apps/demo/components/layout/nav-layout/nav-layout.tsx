@@ -2,6 +2,7 @@ import { AppShell, Burger } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Link from "next/link";
 import { ReactNode } from "react";
+import { Header } from "../header";
 
 export function NavLayout({ children }: { children: ReactNode }) {
   const [opened, { toggle }] = useDisclosure();
@@ -18,14 +19,10 @@ export function NavLayout({ children }: { children: ReactNode }) {
     >
       <AppShell.Header>
         <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-        <div>Logo</div>
+        <Header />
       </AppShell.Header>
 
-      <AppShell.Navbar p="md">
-        Navbar
-        <Link href="/">Home</Link>
-        <Link href="/nav">Nav</Link>
-      </AppShell.Navbar>
+      <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
 
       <AppShell.Main bg="lime.1">{children}</AppShell.Main>
     </AppShell>

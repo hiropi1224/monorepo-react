@@ -8,21 +8,19 @@ import { UserCard } from "../../components/user-card";
 
 const exampleCode = `
 useEffect(() => {
-    let ignore = false;
-    const abortController = new AbortController();
-    if (!ignore) {
-      fetch("https://jsonplaceholder.typicode.com/users/:userId", {
-      signal: abortController.signal
-      })
-      .then(res => res.json())
-      .then(user => setUser(user))
-      .catch(reportError);
-    }
-    return () => {
-      ignore = true;
-      abortController.abort();
-    };
-  }, [userId]);
+  const abortController = new AbortController();
+
+  fetch('https://jsonplaceholder.typicode.com/users/:userId', {
+    signal: abortController.signal,
+  })
+    .then((res) => res.json())
+    .then((user) => setUser(user))
+    .catch(reportError);
+
+  return () => {
+    abortController.abort();
+  };
+}, [userId]);
 `;
 
 const UseEffectPage: NextPageWithLayout = () => {
@@ -30,20 +28,16 @@ const UseEffectPage: NextPageWithLayout = () => {
   const [user, setUser] = useState<User | null>(null);
 
   useEffect(() => {
-    let ignore = false;
     const abortController = new AbortController();
 
-    if (!ignore) {
-      fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {
-        signal: abortController.signal,
-      })
-        .then((res) => res.json())
-        .then((user) => setUser(user))
-        .catch(reportError);
-    }
+    fetch(`https://jsonplaceholder.typicode.com/users/${userId}`, {
+      signal: abortController.signal,
+    })
+      .then((res) => res.json())
+      .then((user) => setUser(user))
+      .catch(reportError);
 
     return () => {
-      ignore = true;
       abortController.abort();
     };
   }, [userId]);

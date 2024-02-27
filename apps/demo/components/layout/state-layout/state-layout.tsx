@@ -1,15 +1,12 @@
-import { AppShell, Flex } from "@mantine/core";
-import Link from "next/link";
+import { AppShell } from "@mantine/core";
 import { ReactNode } from "react";
+import { Header } from "../header";
 
 export function StateLayout({ children }: { children: ReactNode }) {
   return (
     <AppShell header={{ height: 60 }} padding="md">
       <AppShell.Header>
-        <Flex gap="xl" justify="center">
-          <Link href="/state/context">context</Link>
-          <Link href="/state/zustand">zustand</Link>
-        </Flex>
+        <Header />
       </AppShell.Header>
 
       <AppShell.Main>{children}</AppShell.Main>
