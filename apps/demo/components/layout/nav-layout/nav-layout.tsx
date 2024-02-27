@@ -1,6 +1,5 @@
 import { AppShell, Burger } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
-import Link from "next/link";
 import { ReactNode } from "react";
 import { Header } from "../header";
 
