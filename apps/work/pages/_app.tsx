@@ -1,4 +1,5 @@
 import "../styles/globals.css";
+import "react-app-polyfill/ie11";
 
 import { AppProps } from "next/app";
 import { NextPage } from "next";
