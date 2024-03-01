@@ -1,8 +1,7 @@
-import "./globals.css";
+import "@mantine/core/styles.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-
-const inter = Inter({ subsets: ["latin"] });
+import { ColorSchemeScript, MantineProvider } from "@mantine/core";
+import { DefaultLayout } from "../components/default-layout";
 
 export const metadata: Metadata = {
   title: "Create Turborepo",
@@ -15,8 +14,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }): JSX.Element {
   return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
+    <html lang="ja">
+      <head>
+        <ColorSchemeScript />
+      </head>
+      <body>
+        <MantineProvider>
+          <DefaultLayout>{children}</DefaultLayout>
+        </MantineProvider>
+      </body>
     </html>
   );
 }
