@@ -2,6 +2,7 @@
 
 import { AppShell, Burger } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
+import Link from "next/link";
 import { ReactNode } from "react";
 
 export function DefaultLayout({ children }: { children: ReactNode }) {
@@ -22,7 +23,10 @@ export function DefaultLayout({ children }: { children: ReactNode }) {
         <div>Logo</div>
       </AppShell.Header>
 
-      <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
+      <AppShell.Navbar p="md">
+        <Link href="/bad">Bad</Link>
+        <Link href="/best">Best</Link>
+      </AppShell.Navbar>
 
       <AppShell.Main>{children}</AppShell.Main>
     </AppShell>
