@@ -4,6 +4,7 @@ import { Button, Stack, Textarea, Text } from "@mantine/core";
 import { ReactNode, useEffect, useState } from "react";
 
 export function BadPractice() {
+  console.count("--- render BadPractice ---");
   const [user, setUserId] = useState(1);
   return (
     <Stack>
@@ -21,6 +22,7 @@ function Profile({
   userId: number;
   children?: ReactNode;
 }) {
+  console.count("--- render Profile ---");
   const [comment, setComment] = useState("");
 
   useEffect(() => {

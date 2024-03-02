@@ -1,12 +1,12 @@
 "use client";
-
 import { Button, Stack, Textarea, Text } from "@mantine/core";
 import { ReactNode, useState } from "react";
 
 export function BestPractice() {
+  console.count("--- render BestPractice ---");
   const [userId, setUserId] = useState(1);
   return (
-    <Stack>
+    <Stack key={userId}>
       <Profile userId={userId} key={userId} />
       <Button onClick={() => setUserId((prev) => prev + 1)}>NextUser</Button>
       <Button onClick={() => setUserId((prev) => prev - 1)}>PrevUser</Button>
@@ -14,13 +14,14 @@ export function BestPractice() {
   );
 }
 
-function Profile({
+const Profile = function Profile({
   userId,
   children,
 }: {
   userId: number;
   children?: ReactNode;
 }) {
+  console.count("--- render Profile ---");
   const [comment, setComment] = useState("");
 
   return (
@@ -30,4 +31,4 @@ function Profile({
       <Textarea value={comment} onChange={(e) => setComment(e.target.value)} />
     </Stack>
   );
-}
+};
