@@ -1,5 +1,5 @@
 import { Title } from "@mantine/core";
-import { BestPractice } from "../../../components/best-practice";
+import { BestPractice } from "../../../features/use-effect/components/best-practice";
 
 export default function BestPage(): JSX.Element {
   return (

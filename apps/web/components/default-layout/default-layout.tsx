@@ -24,8 +24,9 @@ export function DefaultLayout({ children }: { children: ReactNode }) {
       </AppShell.Header>
 
       <AppShell.Navbar p="md">
-        <Link href="/bad">Bad</Link>
-        <Link href="/best">Best</Link>
+        <Link href="/use-effect">About useEffect</Link>
+        <Link href="/use-effect/bad">Bad</Link>
+        <Link href="/use-effect/best">Best</Link>
       </AppShell.Navbar>
 
       <AppShell.Main>{children}</AppShell.Main>

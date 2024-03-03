@@ -1,5 +1,5 @@
 import { Title } from "@mantine/core";
-import { BadPractice } from "../../../components/bad-practice/bad-practice";
+import { BadPractice } from "../../../features/use-effect/components/bad-practice/bad-practice";
 
 export default function BadPage(): JSX.Element {
   return (
