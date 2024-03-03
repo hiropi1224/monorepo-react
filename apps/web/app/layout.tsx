@@ -1,4 +1,5 @@
 import "@mantine/core/styles.css";
+import "@mantine/code-highlight/styles.css";
 import type { Metadata } from "next";
 import { ColorSchemeScript, MantineProvider } from "@mantine/core";
 import { DefaultLayout } from "../components/default-layout";

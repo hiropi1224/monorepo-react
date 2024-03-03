@@ -148,6 +148,9 @@ importers:
 
   apps/web:
     dependencies:
+      '@mantine/code-highlight':
+        specifier: ^7.5.3
+        version: 7.5.3(@mantine/core@7.5.3)(@mantine/hooks@7.5.3)(react-dom@18.2.0)(react@18.2.0)
       '@mantine/core':
         specifier: ^7.5.3
         version: 7.5.3(@mantine/hooks@7.5.3)(@types/react@18.2.46)(react-dom@18.2.0)(react@18.2.0)
