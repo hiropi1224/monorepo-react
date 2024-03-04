@@ -5,11 +5,12 @@ import { useState, useEffect } from "react";
 
 export function BadForm() {
   console.count("--- Bad Form render ---");
-  const [firstName, setFirstName] = useState("Taylor");
-  const [lastName, setLastName] = useState("Swift");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   // 🔴 Avoid: redundant state and unnecessary Effect
   const [fullName, setFullName] = useState("");
+  console.log(fullName, "fullName");
   useEffect(() => {
     console.count("--- setFullName ---");
     setFullName(firstName + " " + lastName);
@@ -30,10 +31,11 @@ export function BadForm() {
 
 export function BestForm() {
   console.count("--- Good Form render ---");
-  const [firstName, setFirstName] = useState("Taylor");
-  const [lastName, setLastName] = useState("Swift");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
 
   const fullName = `${firstName} ${lastName}`;
+  console.log(fullName, "fullName");
 
   return (
     <Stack>

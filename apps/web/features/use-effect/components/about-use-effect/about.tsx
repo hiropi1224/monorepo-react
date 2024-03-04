@@ -23,7 +23,6 @@ export function About() {
       <Text>
         useEffect内で最新の値を読み取りたい場合は<Code>refs</Code>が使える
       </Text>
-      <Title order={3}>useEffectはどのようにstateを読み取っているか</Title>
     </Stack>
   );
 }
