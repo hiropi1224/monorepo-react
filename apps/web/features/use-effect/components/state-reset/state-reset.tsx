@@ -3,7 +3,7 @@ import { Button, Stack, Textarea, Text } from "@mantine/core";
 import { ReactNode, useEffect, useState } from "react";
 
 export function StateResetWithUseEffect() {
-  console.count("--- render BadPractice ---");
+  console.count("--- render StateResetWithUseEffect ---");
   const [user, setUserId] = useState(1);
   return (
     <Stack>
@@ -38,7 +38,7 @@ function BadProfile({
 }
 
 export function StateResetWithKey() {
-  console.count("--- render BestPractice ---");
+  console.count("--- render StateResetWithKey ---");
   const [userId, setUserId] = useState(1);
   return (
     <Stack key={userId}>

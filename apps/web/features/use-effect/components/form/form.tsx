@@ -10,10 +10,12 @@ export function BadForm() {
 
   // 🔴 Avoid: redundant state and unnecessary Effect
   const [fullName, setFullName] = useState("");
+  console.log(`firstName: ${firstName}, lastName: ${lastName}`);
   console.log(fullName, "fullName");
   useEffect(() => {
     console.count("--- setFullName ---");
     setFullName(firstName + " " + lastName);
+    return () => console.count("--- cleanup! ---");
   }, [firstName, lastName]);
   return (
     <Stack>
@@ -35,6 +37,7 @@ export function BestForm() {
   const [lastName, setLastName] = useState("");
 
   const fullName = `${firstName} ${lastName}`;
+  console.log(`firstName: ${firstName}, lastName: ${lastName}`);
   console.log(fullName, "fullName");
 
   return (
