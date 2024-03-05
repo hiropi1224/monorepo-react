@@ -1,8 +1,8 @@
 import { CodeHighlight } from "@mantine/code-highlight";
-import { BadToggleEffect } from "../../../../features/use-effect/components/toggle-effect/toggle-effect";
+import { BadToggleEffect } from "../../../../features/use-effect/components/toggle-effect";
 import { Title } from "@mantine/core";
 
-export default function FormPage(): JSX.Element {
+export default function TogglePage(): JSX.Element {
   return (
     <div>
       <Title order={2}>Toggle Example</Title>

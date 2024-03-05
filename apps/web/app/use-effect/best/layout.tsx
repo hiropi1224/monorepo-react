@@ -5,11 +5,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div>
       <Flex gap={10}>
-        <Link href="/use-effect/bad">form</Link>
-        <Link href="/use-effect/bad/toggle">toggle</Link>
-        <Link href="/use-effect/bad/state-reset">state-reset</Link>
+        <Link href="/use-effect/best">form</Link>
+        <Link href="/use-effect/best/toggle">toggle</Link>
+        <Link href="/use-effect/best/state-reset">state-reset</Link>
       </Flex>
-      <Title>useEffect Bad</Title>
+      <Title>useEffect Best</Title>
       {children}
     </div>
   );

@@ -2,7 +2,7 @@ import { CodeHighlight } from "@mantine/code-highlight";
 import { BadForm } from "../../../features/use-effect/components/form";
 import { Title } from "@mantine/core";
 
-export default function BadPage(): JSX.Element {
+export default function BadFormPage(): JSX.Element {
   return (
     <div>
       <Title order={2}>Form Example</Title>

@@ -1,42 +1,39 @@
 import { CodeHighlight } from "@mantine/code-highlight";
-import { BadPractice } from "../../../../features/use-effect/components/bad-practice";
 import { Title } from "@mantine/core";
+import { StateResetWithKey } from "../../../../features/use-effect/components/state-reset";
 
-export default function FormPage(): JSX.Element {
+export default function StateResetWithKeyPage(): JSX.Element {
   return (
     <div>
-      <Title order={2}>state Example</Title>
+      <Title order={2}>stateResetWithKey Example</Title>
 
-      <BadPractice />
-      <CodeHighlight code={form} language="tsx" withCopyButton={false} />
+      <StateResetWithKey />
+      <CodeHighlight code={stateReset} language="tsx" withCopyButton={false} />
     </div>
   );
 }
 
-const form = `
-export function BadPractice() {
-  const [user, setUserId] = useState(1);
+const stateReset = `
+export function StateResetWithKey() {
+  const [userId, setUserId] = useState(1);
   return (
-    <Stack>
-      <Profile userId={user} />
+    <Stack key={userId}>
+      <Profile userId={userId} key={userId} />
       <Button onClick={() => setUserId((prev) => prev + 1)}>NextUser</Button>
       <Button onClick={() => setUserId((prev) => prev - 1)}>PrevUser</Button>
     </Stack>
   );
 }
 
-function Profile({
+const Profile = function Profile({
   userId,
   children,
 }: {
   userId: number;
   children?: ReactNode;
 }) {
+  console.count("--- render Profile ---");
   const [comment, setComment] = useState("");
-
-  useEffect(() => {
-    setComment("");
-  }, [userId]);
 
   return (
     <Stack>
@@ -45,5 +42,5 @@ function Profile({
       <Textarea value={comment} onChange={(e) => setComment(e.target.value)} />
     </Stack>
   );
-}
+};
 `;
