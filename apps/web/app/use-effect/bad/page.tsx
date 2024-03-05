@@ -1,6 +1,6 @@
 import { CodeHighlight } from "@mantine/code-highlight";
 import { BadForm } from "../../../features/use-effect/components/form";
-import { Code, List, ListItem, Stack, Title, Text } from "@mantine/core";
+import { Code, List, ListItem, Stack, Title } from "@mantine/core";
 
 export default function BadFormPage(): JSX.Element {
   return (
