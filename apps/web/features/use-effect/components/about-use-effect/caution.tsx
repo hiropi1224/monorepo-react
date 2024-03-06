@@ -8,14 +8,6 @@ export function Caution() {
         useEffectはコンポーネントのライフサイクル用hookではない
       </Title>
       <DoNotLifeCycle />
-      <Title order={3}>
-        <Anchor
-          href="https://ja.react.dev/learn/you-might-not-need-an-effect#updating-state-based-on-props-or-state"
-          target="_blank"
-        >
-          propsまたはstateに基づいてstateを更新する
-        </Anchor>
-      </Title>
     </Stack>
   );
 }
