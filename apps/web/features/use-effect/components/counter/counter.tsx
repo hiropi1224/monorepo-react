@@ -24,3 +24,14 @@ export function Counter() {
   }, [count]);
   return <Text>{count}</Text>;
 }
+
+export function BestCounter() {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount((prev) => prev + 1);
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+  return <Text>{count}</Text>;
+}

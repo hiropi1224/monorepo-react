@@ -1,5 +1,13 @@
 import { CodeHighlight } from "@mantine/code-highlight";
-import { Anchor, Code, Stack, Text, Title } from "@mantine/core";
+import {
+  Anchor,
+  Code,
+  List,
+  ListItem,
+  Stack,
+  Text,
+  Title,
+} from "@mantine/core";
 
 export function Fix() {
   return (
@@ -21,6 +29,26 @@ export function Fix() {
         useEffectはどのようにstateを読み取っているかでも見たが、エフェクトは常に最新の値を見るような仕組みになっておらず、自分が属しているレンダーのstateを見ている。ここではエフェクトの依存配列が空配列のため、最初のレンダリングのstateを使って処理が行われる（つまり常に
         <Code>setCount(0 + 1)</Code>が行われている）
       </Text>
+      <Text>依存配列を正しく設定するには2つの方法がある。</Text>
+      <List type="ordered">
+        <ListItem>
+          <Text>エフェクト内で使われるすべての値を依存配列に設定する</Text>
+          <Text c="gray">
+            問題は解決するが、<Code>count</Code>
+            が変更されるたびにインターバルがクリア、再設定されてしまう
+          </Text>
+        </ListItem>
+        <ListItem>
+          <Text>依存関係が少なくなるようエフェクト内の処理を変更する</Text>
+        </ListItem>
+      </List>
+      <Text>
+        エフェクトの処理を変更するには依存関係に入れる値がどのように使われているかを見る必要がある。カウンターの例では、
+        <Code>count</Code>は<Code>setCount</Code>に渡すために使われている。
+        この場合、<Code>setCount</Code>で前の値を使って更新することで
+        <Code>count</Code>を依存関係から外すことができる。
+      </Text>
+      <CodeHighlight code={removeDeps} language="tsx" withCopyButton={false} />
     </Stack>
   );
 }
@@ -56,6 +84,20 @@ function Counter() {
    
     return <h1>{count}</h1>;
   }
+`;
+const removeDeps = `
+function Counter() {
+  const [count, setCount] = useState(0);
+ 
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount(c => c + 1);
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+ 
+  return <h1>{count}</h1>;
+}
 `;
 
 function Diff() {

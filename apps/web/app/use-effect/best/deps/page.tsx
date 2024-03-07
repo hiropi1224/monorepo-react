@@ -1,6 +1,9 @@
 import { CodeHighlight } from "@mantine/code-highlight";
 import { Title } from "@mantine/core";
-import { Counter } from "../../../../features/use-effect/components/counter";
+import {
+  Counter,
+  BestCounter,
+} from "../../../../features/use-effect/components/counter";
 
 export default function DepsPage(): JSX.Element {
   return (
@@ -8,6 +11,8 @@ export default function DepsPage(): JSX.Element {
       <Title order={2}>Deps Example</Title>
       <Counter />
       <CodeHighlight code={deps} language="tsx" withCopyButton={false} />
+      <BestCounter />
+      <CodeHighlight code={best} language="tsx" withCopyButton={false} />
     </div>
   );
 }
@@ -24,5 +29,18 @@ function Counter() {
   }, [count]);
 
   return <h1>{count}</h1>;
+}
+`;
+
+const best = `
+function BestCounter() {
+  const [count, setCount] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => {
+      setCount((prev) => prev + 1);
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+  return <Text>{count}</Text>;
 }
 `;

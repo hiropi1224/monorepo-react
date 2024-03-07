@@ -142,15 +142,15 @@ function Args() {
     <List>
       <ListItem>
         <Code>setup</Code>
-        <Text fz="xs">- コンポーネントが初めてDOMに追加されると実行</Text>
-        <Text fz="xs">
+        <Text>- コンポーネントが初めてDOMに追加されると実行</Text>
+        <Text>
           -
           依存配列があれば古い値を使ってクリーンアップ関数を実行し、その後新しい値を使ってセットアップ関数を実行
         </Text>
       </ListItem>
       <ListItem>
         <Code>dependencies</Code>
-        <Text fz="xs">
+        <Text>
           -
           コード内で参照されるすべてのリアクティブな値(props、state、コンポーネント本体に直接宣言されたすべての変数、関数)
         </Text>

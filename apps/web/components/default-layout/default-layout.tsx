@@ -1,6 +1,6 @@
 "use client";
 
-import { AppShell, Burger } from "@mantine/core";
+import { AppShell, Burger, Text } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import Link from "next/link";
 import { ReactNode } from "react";
@@ -20,7 +20,7 @@ export function DefaultLayout({ children }: { children: ReactNode }) {
     >
       <AppShell.Header>
         <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-        <div>Logo</div>
+        <Text ta="center">Reactまとめ</Text>
       </AppShell.Header>
 
       <AppShell.Navbar p="md">

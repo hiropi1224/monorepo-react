@@ -1,1 +1,1 @@
-export { DepsCounter, Counter } from "./counter";
+export { DepsCounter, Counter, BestCounter } from "./counter";
