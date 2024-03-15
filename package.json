@@ -8,6 +8,7 @@
     "dev:web": "turbo dev --filter web",
     "dev:docs": "turbo dev --filter docs",
     "dev:work": "turbo dev --filter work",
+    "dev:auth": "turbo dev --filter auth",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
