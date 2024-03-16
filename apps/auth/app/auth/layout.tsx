@@ -2,10 +2,7 @@ import { ReactNode } from "react";
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
   return (
-    <div>
-      <nav className="bg-red-500 text-white">
-        This is auth navbar without /auth prefix
-      </nav>
+    <div className="h-full flex items-center justify-center bg-gradient-to-r from-blue-800  via-sky-500 to-blue-800">
       {children}
     </div>
   );
