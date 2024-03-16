@@ -4,7 +4,7 @@ import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 
 type FormSuccessProps = {
-  message: string;
+  message: string | undefined;
 };
 
 export function FormSuccess({ message }: FormSuccessProps) {
