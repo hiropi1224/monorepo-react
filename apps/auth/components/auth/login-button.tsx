@@ -23,6 +23,5 @@ export function LoginButton({
     return <span>Implement mode</span>;
   }
 
-  // biome-ignore lint/a11y/useKeyWithClickEvents: <explanation>
   return <span onClick={onClick}>{children}</span>;
 }
