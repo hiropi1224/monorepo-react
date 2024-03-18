@@ -17,6 +17,20 @@ export const {
   signIn,
   signOut,
 } = NextAuth({
+  // 同じメールアドレスを使ったOAuth時のエラー画面を指定。指定がなければAuth.jsのデフォルト画面が表示される
+  pages: {
+    signIn: "/auth/login",
+    error: "/auth/error",
+  },
+  // OAuthログイン時にemailVerifiedを設定
+  events: {
+    async linkAccount({ user }) {
+      await db.user.update({
+        where: { id: user.id },
+        data: { emailVerified: new Date() },
+      });
+    },
+  },
   callbacks: {
     async session({ token, session }) {
       if (token.sub && session.user) {

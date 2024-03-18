@@ -17,9 +17,15 @@ export default auth((req) => {
 
   const isApiAuthRoute = nextUrl.pathname.startsWith(apiAuthPrefix);
   const isPublicRoute = publicRoutes.includes(nextUrl.pathname);
+  const isOAuthError = nextUrl.search.includes("OAuthAccountNotLinked");
   const isAuthRoute = authRoutes.includes(nextUrl.pathname);
 
   if (isApiAuthRoute) {
+    if (isOAuthError) {
+      return NextResponse.redirect(
+        new URL(`${LOGIN_REDIRECT}${nextUrl.search}`, nextUrl)
+      );
+    }
     return;
   }
 
