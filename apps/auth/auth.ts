@@ -32,6 +32,19 @@ export const {
     },
   },
   callbacks: {
+    async signIn({ user, account }) {
+      // OAuthの場合はemail verificationは不要
+      if (account?.provider !== "credentials") return true;
+
+      const existingUser = await getUserById(user.id ?? "");
+
+      // ユーザー情報なし or メール認証未完の場合はログインをブロック
+      if (!existingUser?.emailVerified) return false;
+
+      // TODO: 2FA check
+
+      return true;
+    },
     async session({ token, session }) {
       if (token.sub && session.user) {
         session.user.id = token.sub;
