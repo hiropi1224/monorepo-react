@@ -17,7 +17,7 @@ import { Button } from "~/components/ui/button";
 import { FormError } from "~/components/form-error";
 import { FormSuccess } from "~/components/form-success";
 import { useState, useTransition } from "react";
-import { reset } from "~/app/actions/reset";
+import { reset } from "~/actions/reset";
 
 export function ResetForm() {
   const [error, setError] = useState<string | undefined>("");

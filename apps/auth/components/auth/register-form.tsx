@@ -17,7 +17,7 @@ import { Button } from "~/components/ui/button";
 import { FormError } from "~/components/form-error";
 import { FormSuccess } from "~/components/form-success";
 import { useState, useTransition } from "react";
-import { register } from "~/app/actions/register";
+import { register } from "~/actions/register";
 
 export function RegisterForm() {
   const [error, setError] = useState<string | undefined>("");
