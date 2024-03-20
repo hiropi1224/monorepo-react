@@ -23,6 +23,7 @@ export const login = async (values: z.infer<typeof LoginSchema>) => {
     return { error: "Email does not exist!" };
   }
 
+  // メール認証の確認
   if (!existingUser.emailVerified) {
     const verificationToken = await generateVerificationToken(
       existingUser.email

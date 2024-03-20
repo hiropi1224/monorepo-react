@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from "uuid";
-import { getVerificationTokenByEmail } from "~/data/vertification-token";
+import { getVerificationTokenByEmail } from "~/data/verification-token";
 import { db } from "~/lib/db";
 
 export const generateVerificationToken = async (email: string) => {
