@@ -1,26 +1,37 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { ReactNode } from "react";
+import { LoginForm } from "~/components/auth/login-form";
 import { Button } from "~/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger } from "~/components/ui/dialog";
 
 type LoginButtonProps = {
+  children: ReactNode;
   mode?: "modal" | "redirect";
   asChild?: boolean;
 };
 
-export function LoginButton({ mode = "redirect", asChild }: LoginButtonProps) {
+export function LoginButton({
+  children,
+  mode = "redirect",
+  asChild,
+}: LoginButtonProps) {
   const router = useRouter();
   const onClick = () => {
     router.push("/auth/login");
   };
 
   if (mode === "modal") {
-    return <span>Implement mode</span>;
+    return (
+      <Dialog>
+        <DialogTrigger asChild={asChild}>{children}</DialogTrigger>
+        <DialogContent className="p-0 w-auto bg-transparent border-none">
+          <LoginForm />
+        </DialogContent>
+      </Dialog>
+    );
   }
 
-  return (
-    <Button variant="secondary" size="lg" onClick={onClick}>
-      Sign in
-    </Button>
-  );
+  return <span onClick={onClick}>{children}</span>;
 }
